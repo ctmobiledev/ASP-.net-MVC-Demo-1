@@ -1,0 +1,182 @@
+﻿@model OhmValueCalc.Models.ResistorModel
+
+@{
+    ViewBag.Title = "Candidate: Charles Tatum II";
+}
+
+<div>
+    <h1>Ohm Value Calculator</h1>
+
+    <p class="lead">
+    This is a demonstration of a electronic color calculator for resistors using the ASP.NET MVC platform.
+        <br />
+    Set the color bands by clicking the color swatch names below, then click on Calculate for resulting values.
+    </p>
+
+    <script>
+
+        function pickColor(color, id) {
+            console.log('color = ' + color + ', id = ' + id);
+
+            document.getElementById(id).value = color;
+
+            if (color == 'black') {
+                document.getElementById(id).style.backgroundColor = color;
+                document.getElementById(id).style.color = 'white';
+            } else {
+                document.getElementById(id).style.backgroundColor = color;
+                document.getElementById(id).style.color = 'black';
+            }
+
+        }
+
+
+    </script>
+
+    <div>
+
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+        {
+            <div style="font-size: 18pt;">
+                <table>
+                    <tr>
+                        <td>Band 1</td>
+                        <td class="color-text-box">@Html.TextBoxFor(model => model.bandAColor, htmlAttributes: new { id = "txtBandA", Class = "color-text-box" })</td>
+                        <td>
+                            <div style="height: 30px;">
+                                <div onclick="pickColor('white', 'txtBandA');" class="stripe-color" style="background-color:white; color:black;">white</div>
+                                <div onclick="pickColor('gray', 'txtBandA');" class="stripe-color" style="background-color:gray; color:black;">gray</div>
+                                <div onclick="pickColor('violet', 'txtBandA');" class="stripe-color" style="background-color:violet; color:white;">violet</div>
+                                <div onclick="pickColor('blue', 'txtBandA');" class="stripe-color" style="background-color:blue; color:white;">blue</div>
+                                <div onclick="pickColor('green', 'txtBandA');" class="stripe-color" style="background-color:green; color:white;">green</div>
+                                <div onclick="pickColor('yellow', 'txtBandA');" class="stripe-color" style="background-color:yellow; color:black;">yellow</div>
+                                <div onclick="pickColor('orange', 'txtBandA');" class="stripe-color" style="background-color:orange; color:black;">orange</div>
+                                <div onclick="pickColor('red', 'txtBandA');" class="stripe-color" style="background-color:red; color:white;">red</div>
+                                <div onclick="pickColor('brown', 'txtBandA');" class="stripe-color" style="background-color:brown; color:white;">brown</div>
+                                <div onclick="pickColor('black', 'txtBandA');" class="stripe-color" style="background-color:black; color:white;">black</div>
+                                <div class="stripe-color" style="background-color:white; color:white;"></div>
+                                <div class="stripe-color" style="background-color:white; color:white;"></div>
+                                <div class="stripe-color" style="background-color:white; color:white;"></div>
+                                <div class="stripe-color" style="background-color:white; color:white;"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Band 2</td>
+                        <td class="color-text-box">@Html.TextBoxFor(model => model.bandBColor, htmlAttributes: new { id = "txtBandB", Class = "color-text-box" })</td>
+                        <td>
+                            <div style="height: 30px;">
+                                <div onclick="pickColor('white', 'txtBandB');" class="stripe-color" style="background-color:white; color:black;">white</div>
+                                <div onclick="pickColor('gray', 'txtBandB');" class="stripe-color" style="background-color:gray; color:black;">gray</div>
+                                <div onclick="pickColor('violet', 'txtBandB');" class="stripe-color" style="background-color:violet; color:white;">violet</div>
+                                <div onclick="pickColor('blue', 'txtBandB');" class="stripe-color" style="background-color:blue; color:white;">blue</div>
+                                <div onclick="pickColor('green', 'txtBandB');" class="stripe-color" style="background-color:green; color:white;">green</div>
+                                <div onclick="pickColor('yellow', 'txtBandB');" class="stripe-color" style="background-color:yellow; color:black;">yellow</div>
+                                <div onclick="pickColor('orange', 'txtBandB');" class="stripe-color" style="background-color:orange; color:black;">orange</div>
+                                <div onclick="pickColor('red', 'txtBandB');" class="stripe-color" style="background-color:red; color:white;">red</div>
+                                <div onclick="pickColor('brown', 'txtBandB');" class="stripe-color" style="background-color:brown; color:white;">brown</div>
+                                <div onclick="pickColor('black', 'txtBandB');" class="stripe-color" style="background-color:black; color:white;">black</div>
+                                <div class="stripe-color" style="background-color:white; color:white;"></div>
+                                <div class="stripe-color" style="background-color:white; color:white;"></div>
+                                <div class="stripe-color" style="background-color:white; color:white;"></div>
+                                <div class="stripe-color" style="background-color:white; color:white;"></div>
+                            </div>
+                        </td>
+                   </tr>
+                    <tr>
+                        <td>Band 3</td>
+                        <td class="color-text-box">@Html.TextBoxFor(model => model.bandCColor, htmlAttributes: new { id = "txtBandC", Class = "color-text-box" })</td>
+                        <td>
+                            <div style="height: 30px;">
+                                <div onclick="pickColor('white', 'txtBandC');" class="stripe-color" style="background-color:white; color:black;">white</div>
+                                <div onclick="pickColor('gray', 'txtBandC');" class="stripe-color" style="background-color:gray; color:black;">gray</div>
+                                <div onclick="pickColor('violet', 'txtBandC');" class="stripe-color" style="background-color:violet; color:white;">violet</div>
+                                <div onclick="pickColor('blue', 'txtBandC');" class="stripe-color" style="background-color:blue; color:white;">blue</div>
+                                <div onclick="pickColor('green', 'txtBandC');" class="stripe-color" style="background-color:green; color:white;">green</div>
+                                <div onclick="pickColor('yellow', 'txtBandC');" class="stripe-color" style="background-color:yellow; color:black;">yellow</div>
+                                <div onclick="pickColor('orange', 'txtBandC');" class="stripe-color" style="background-color:orange; color:black;">orange</div>
+                                <div onclick="pickColor('red', 'txtBandC');" class="stripe-color" style="background-color:red; color:white;">red</div>
+                                <div onclick="pickColor('brown', 'txtBandC');" class="stripe-color" style="background-color:brown; color:white;">brown</div>
+                                <div onclick="pickColor('black', 'txtBandC');" class="stripe-color" style="background-color:black; color:white;">black</div>
+                                <div onclick="pickColor('gold', 'txtBandC');" class="stripe-color" style="background-color:gold; color:black;">gold</div>
+                                <div onclick="pickColor('silver', 'txtBandC');" class="stripe-color" style="background-color:silver; color:black;">silver</div>
+                                <div onclick="pickColor('pink', 'txtBandC');" class="stripe-color" style="background-color:pink; color:black;">pink</div>
+                                <div class="stripe-color" style="background-color:white; color:white;"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Band 4</td>
+                        <td class="color-text-box">@Html.TextBoxFor(model => model.bandDColor, htmlAttributes: new { id = "txtBandD", Class = "color-text-box" })</td>
+                        <td>
+                            <div style="height: 30px;">
+                                <div class="stripe-color" style="background-color:white; color:white;"></div>
+                                <div onclick="pickColor('gray', 'txtBandD');" class="stripe-color" style="background-color:gray; color:black;">gray</div>
+                                <div onclick="pickColor('violet', 'txtBandD');" class="stripe-color" style="background-color:violet; color:white;">violet</div>
+                                <div onclick="pickColor('blue', 'txtBandD');" class="stripe-color" style="background-color:blue; color:white;">blue</div>
+                                <div onclick="pickColor('green', 'txtBandD');" class="stripe-color" style="background-color:green; color:white;">green</div>
+                                <div onclick="pickColor('yellow', 'txtBandD');" class="stripe-color" style="background-color:yellow; color:black;">yellow</div>
+                                <div onclick="pickColor('orange', 'txtBandD');" class="stripe-color" style="background-color:orange; color:black;">orange</div>
+                                <div onclick="pickColor('red', 'txtBandD');" class="stripe-color" style="background-color:red; color:white;">red</div>
+                                <div onclick="pickColor('brown', 'txtBandD');" class="stripe-color" style="background-color:brown; color:white;">brown</div>
+                                <div class="stripe-color" style="background-color:white; color:white;"></div>
+                                <div onclick="pickColor('gold', 'txtBandD');" class="stripe-color" style="background-color:gold; color:black;">gold</div>
+                                <div onclick="pickColor('silver', 'txtBandD');" class="stripe-color" style="background-color:silver; color:black;">silver</div>
+                                <div class="stripe-color" style="background-color:white; color:white;"></div>
+                                <div onclick="pickColor('none', 'txtBandD');" class="stripe-color" style="background-color:white; color:black;">none</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Calculate" class="btn btn-primary btn-lg" style="margin-top: 20px;" /></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="txtOhmsOut" runat="server" style="font-size: 30pt;">
+                @ViewBag.ResistorOhms, @ViewBag.ResistorTolerance 
+            </div>
+
+        }
+
+    </div>
+
+    <script>
+
+        // on first view as well as refresh
+
+        document.getElementById('txtBandA').style.backgroundColor = "@ViewBag.vb_BandA_Color";
+        if (document.getElementById('txtBandA').style.backgroundColor == "black") {
+            document.getElementById('txtBandA').style.color = 'white';
+        } else {
+            document.getElementById('txtBandA').style.color = 'black';
+        }
+
+        document.getElementById('txtBandB').style.backgroundColor = "@ViewBag.vb_BandB_Color";
+        if (document.getElementById('txtBandB').style.backgroundColor == "black") {
+            document.getElementById('txtBandB').style.color = 'white';
+        } else {
+            document.getElementById('txtBandB').style.color = 'black';
+        }
+
+        document.getElementById('txtBandC').style.backgroundColor = "@ViewBag.vb_BandC_Color";
+        if (document.getElementById('txtBandC').style.backgroundColor == "black") {
+            document.getElementById('txtBandC').style.color = 'white';
+        } else {
+            document.getElementById('txtBandC').style.color = 'black';
+        }
+
+        document.getElementById('txtBandD').style.backgroundColor = "@ViewBag.vb_BandD_Color";
+        if (document.getElementById('txtBandD').style.backgroundColor == "black") {
+            document.getElementById('txtBandD').style.color = 'white';
+        } else {
+            document.getElementById('txtBandD').style.color = 'black';
+        }
+
+
+    </script>
+
+
+</div>
